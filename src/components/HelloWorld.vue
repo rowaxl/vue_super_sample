@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>{{ text }}</h2>
-    <input type="text" v-on:input="changeMessage" />
+    <h2>url: {{ text }}</h2>
+    <input type="text" v-on:input="changeText" />
+    <button v-on:click="updateLink">make link</button>
+    <div><a v-bind:href="href">Link</a></div>
   </div>
 </template>
 
@@ -12,10 +13,18 @@ export default {
   props: {
     msg: String
   },
-  data: () => { return { text: 'initial value' } },
+  data: () => {
+    return {
+      text: 'data initial value',
+      href: ''
+    }
+  },
   methods: {
-    changeMessage: function(e) {
+    changeText: function(e) {
       this.text = e.target.value;
+    },
+    updateLink: function() {
+      this.href = this.text;
     }
   }
 }
