@@ -3,13 +3,18 @@
     <h2>url: {{ text }}</h2>
     <input type="text" v-on:input="changeText" v-bind:value="text" />
     <button v-on:click="updateLink">make link</button>
-    <div><a v-bind:href="href">Link</a></div>
+    <Link v-bind:href="href" />
   </div>
 </template>
 
 <script>
+import Link from './Link.vue';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    Link
+  },
   data: () => {
     return {
       text: 'data initial value',
