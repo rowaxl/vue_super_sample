@@ -18,7 +18,7 @@ export default {
   data: () => {
     return {
       text: 'data initial value',
-      href: ''
+      href: null
     }
   },
   methods: {
