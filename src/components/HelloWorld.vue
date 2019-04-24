@@ -15,7 +15,7 @@ export default {
   components: {
     Link
   },
-  data: () => {
+  data: function() {
     return {
       text: 'data initial value',
       href: null
