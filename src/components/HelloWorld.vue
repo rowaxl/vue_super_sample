@@ -27,7 +27,7 @@ export default {
     },
     updateLink: function() {
       this.href = this.text;
-      this.text = '';
+      this.text = null;
     }
   }
 }
