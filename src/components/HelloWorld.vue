@@ -6,6 +6,7 @@
     <button v-on:click="updateLink">make link</button>
     <Link v-bind:href="href" />
     <Computed />
+    <Css />
   </div>
 </template>
 
@@ -13,13 +14,15 @@
 import Link from './Link.vue';
 import Counter from './Counter';
 import Computed from './Computed';
+import Css from './Css';
 
 export default {
   name: 'HelloWorld',
   components: {
     Link,
     Counter,
-    Computed
+    Computed,
+    Css
   },
   data: function() {
     return {
