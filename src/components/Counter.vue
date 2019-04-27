@@ -1,8 +1,11 @@
 <template>
     <div>
-        <p>{{ counter }}</p>
-        <button v-on:click="increment">Inc</button>
-        <button v-on:click="decrement">Dec</button>
+        <button v-on:click="increment('x', 1, $event)">Inc x</button>
+        <button v-on:click="increment('y', 1, $event)">Inc y</button>
+        <p v-on:mousemove="updateCoordinate">
+            Coordinate: {{ x }} / {{ y }}
+            - <span v-on:mousemove.stop="">DEAD SPOT</span>
+        </p>
     </div>
 </template>
 
@@ -11,15 +14,24 @@ export default {
     name: 'Counter',
     data: function() {
         return {
-            counter: 0
+            x: 0,
+            y: 0
         }
     },
     methods: {
-        increment: function () {
-            this.counter = ++this.counter;
+        increment: function (name, int) {
+            switch(name) {
+                case 'x':
+                    this.x += int;
+                    break;
+                case 'y':
+                    this.y += int;
+                    break;
+            }
         },
-        decrement: function () {
-            this.counter = --this.counter;
+        updateCoordinate: function(event) {
+            this.x = event.clientX;
+            this.y = event.clientY;
         }
     }
 }
