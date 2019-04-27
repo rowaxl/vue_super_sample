@@ -2,8 +2,8 @@
     <div>
         <p>Counter: {{ computedCounter }} | {{ computedCounterTwo }}</p>
         <p>Result: {{ result() }} | {{ output }}</p>
-        <button v-on:click="++computedCounter">Click!</button>
-        <button v-on:click="++computedCounterTwo">Click!</button>
+        <button @click="++computedCounter">Click!</button>
+        <button @click="++computedCounterTwo">Click!</button>
     </div>
 </template>
 
