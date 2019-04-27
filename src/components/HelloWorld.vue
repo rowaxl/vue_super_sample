@@ -5,18 +5,21 @@
     <input type="text" v-on:input="changeText" v-bind:value="text" />
     <button v-on:click="updateLink">make link</button>
     <Link v-bind:href="href" />
+    <Computed />
   </div>
 </template>
 
 <script>
 import Link from './Link.vue';
 import Counter from './Counter';
+import Computed from './Computed';
 
 export default {
   name: 'HelloWorld',
   components: {
     Link,
-    Counter
+    Counter,
+    Computed
   },
   data: function() {
     return {
