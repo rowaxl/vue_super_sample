@@ -1,11 +1,12 @@
 <template>
     <div>
-        <button v-on:click="increment('x', 1, $event)">Inc x</button>
-        <button v-on:click="increment('y', 1, $event)">Inc y</button>
+        <button v-on:click="increment('x', 1)">Inc x</button>
+        <button v-on:click="increment('y', 1)">Inc y</button>
         <p v-on:mousemove="updateCoordinate">
             Coordinate: {{ x }} / {{ y }}
             - <span v-on:mousemove.stop="">DEAD SPOT</span>
         </p>
+        <input type="text" v-on:keyup.enter="entered"></input>
     </div>
 </template>
 
@@ -32,6 +33,9 @@ export default {
         updateCoordinate: function(event) {
             this.x = event.clientX;
             this.y = event.clientY;
+        },
+        entered: function(event) {
+            console.log(event);
         }
     }
 }
