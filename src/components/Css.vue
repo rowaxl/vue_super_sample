@@ -7,6 +7,7 @@
         />
         <div class="demo" :class="{red: attachRed}"></div>
         <div class="demo" :class="[color, {red:attachRed}]"></div>
+        <div class="demo" :style="{backgroundColor: color}"></div>
         <hr>
         <input type="text" v-model="color" />
     </div>
