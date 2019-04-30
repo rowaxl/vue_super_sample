@@ -8,6 +8,7 @@
         <div class="demo" :class="{red: attachRed}"></div>
         <div class="demo" :class="[color, {red:attachRed}]"></div>
         <div class="demo" :style="{backgroundColor: color}"></div>
+        <div class="demo" :style="someStyle"></div>
         <hr>
         <input type="text" v-model="color" />
     </div>
@@ -19,7 +20,8 @@ export default {
     data: function() {
         return {
             attachRed: false,
-            color: 'green'
+            color: 'green',
+            width: 100
         }
     },
     computed: {
@@ -27,6 +29,12 @@ export default {
             return {
                 red: this.attachRed,
                 blue: !this.attachRed
+            }
+        },
+        someStyle: function() {
+            return {
+                backgroundColor: this.color,
+                width: this.width + 'px'
             }
         }
     }
