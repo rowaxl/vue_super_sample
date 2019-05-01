@@ -9,6 +9,7 @@
         <div class="demo" :class="[color, {red:attachRed}]"></div>
         <div class="demo" :style="{backgroundColor: color}"></div>
         <div class="demo" :style="someStyle"></div>
+        <div class="demo" :style="[someStyle, {height: '10vh'}]"></div>
         <hr>
         <input type="text" v-model="color" />
     </div>
@@ -21,7 +22,7 @@ export default {
         return {
             attachRed: false,
             color: 'green',
-            width: 100
+            width: 10
         }
     },
     computed: {
@@ -34,7 +35,7 @@ export default {
         someStyle: function() {
             return {
                 backgroundColor: this.color,
-                width: this.width + 'px'
+                width: this.width + 'vw'
             }
         }
     }
