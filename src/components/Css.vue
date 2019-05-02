@@ -9,7 +9,7 @@
         <div class="demo" :class="[color, {red:attachRed}]"></div>
         <div class="demo" :style="{backgroundColor: color}"></div>
         <div class="demo" :style="someStyle"></div>
-        <div class="demo" :style="[someStyle, {height: '10vh'}]"></div>
+        <div class="demo" :style="[{height: '10vh'}, {backgroundColor: attachRed ? 'red' : color}]"></div>
         <hr>
         <input type="text" v-model="color" />
     </div>
