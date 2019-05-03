@@ -7,6 +7,7 @@
     <Link v-bind:href="href" />
     <Computed />
     <Css />
+    <Rendering />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import Link from './Link.vue';
 import Counter from './Counter';
 import Computed from './Computed';
 import Css from './Css';
+import Rendering from './Rendering';
 
 export default {
   name: 'HelloWorld',
@@ -22,7 +24,8 @@ export default {
     Link,
     Counter,
     Computed,
-    Css
+    Css,
+    Rendering
   },
   data: function() {
     return {
