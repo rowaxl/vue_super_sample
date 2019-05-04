@@ -2,7 +2,7 @@
     <div>
         Switch by v-if
         <p v-if="show">Show</p>
-        <p v-else>Unshown</p>
+        <p v-else-if="!show">Unshown</p>
         <button @click="show = !show">Switch</button>
     </div>
 </template>
