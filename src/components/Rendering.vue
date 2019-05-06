@@ -10,6 +10,10 @@
 
         <h3 v-show="show">V-Show is using display:none </h3>
         <button @click="show = !show">Switch</button>
+
+        <ul :style="{textAlign: 'left'}">
+            <li v-for="(ingredient, i) in ingredients" v-bind:key="ingredient">{{ ingredient }}({{ i }})</li>
+        </ul>
     </div>
 </template>
 
@@ -18,7 +22,8 @@ export default {
     name: 'Rendering',
     data: function() {
         return {
-            show: false
+            show: false,
+            ingredients: ['100g of beef', 'A can of cutted tomato', '100ml of water']
         }
     }
 }
