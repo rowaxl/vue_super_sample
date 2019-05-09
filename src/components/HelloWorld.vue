@@ -8,15 +8,19 @@
     <Computed />
     <Css />
     <Rendering />
+    <DropZone @send-file="sendFile" />
+    <button type="button" @click="parse">パース</button>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import Link from './Link.vue';
 import Counter from './Counter';
 import Computed from './Computed';
 import Css from './Css';
 import Rendering from './Rendering';
+import DropZone from './DropZone';
 
 export default {
   name: 'HelloWorld',
@@ -25,12 +29,14 @@ export default {
     Counter,
     Computed,
     Css,
-    Rendering
+    Rendering,
+    DropZone
   },
   data: function() {
     return {
       text: 'data initial value',
-      href: null
+      href: null,
+      files: []
     }
   },
   methods: {
@@ -40,6 +46,17 @@ export default {
     updateLink: function() {
       this.href = this.text;
       this.text = null;
+    },
+    sendFile: function(list) {
+      this.files = list;
+    },
+    parse: function() {
+      const reader = new FileReader();
+      reader.readAsText(this.files[0], 'utf-8');
+      reader.onload = function(event) {
+        var obj = JSON.parse(event.target.result);
+        console.log(obj.name, obj.family);
+      };
     }
   }
 }
