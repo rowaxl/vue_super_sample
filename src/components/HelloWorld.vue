@@ -10,6 +10,9 @@
     <Rendering />
     <DropZone @send-file="sendFile" />
     <button type="button" @click="parse">パース</button>
+    <pre>
+      {{ json }}
+    </pre>
   </div>
 </template>
 
@@ -36,7 +39,8 @@ export default {
     return {
       text: 'data initial value',
       href: null,
-      files: []
+      files: [],
+      json: {}
     }
   },
   methods: {
@@ -54,8 +58,7 @@ export default {
       const reader = new FileReader();
       reader.readAsText(this.files[0], 'utf-8');
       reader.onload = function(event) {
-        var obj = JSON.parse(event.target.result);
-        console.log(obj.name, obj.family);
+        this.json = JSON.parse(event.target.result).family;
       };
     }
   }
