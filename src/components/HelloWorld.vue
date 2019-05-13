@@ -17,7 +17,7 @@
 </template>
 
 <script>
-/* eslint-disable */
+import { mapState, mapGetters, mapActions } from 'vuex';
 import Link from './Link.vue';
 import Counter from './Counter';
 import Computed from './Computed';
@@ -37,11 +37,13 @@ export default {
   },
   data: function() {
     return {
-      text: 'data initial value',
       href: null,
       files: [],
       json: {}
     }
+  },
+  computed: {
+      ...mapState('text')
   },
   methods: {
     changeText: function(e) {

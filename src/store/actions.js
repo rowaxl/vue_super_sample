@@ -1,8 +1,11 @@
 export default {
-    setState: function({ commit }, input) {
-        commit('setState', input);
+    setState: function({ commit }) {
+        commit('setState');
     },
     toggleState: function ({ commit }) {
         commit('toggleState');
+    },
+    setText: function ({ commit }, input) {
+        commit('setText', input);
     }
 }
