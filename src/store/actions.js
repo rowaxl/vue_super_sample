@@ -6,6 +6,6 @@ export default {
         commit('toggleState');
     },
     setText: function ({ commit }, input) {
-        commit('setText', input);
+        commit('text', input);
     }
 }

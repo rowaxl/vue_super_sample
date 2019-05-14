@@ -2,7 +2,7 @@
   <div class="hello">
     <Counter />
     <h2>url: {{ text }}</h2>
-    <input type="text" v-on:input="changeText" v-bind:value="text" />
+    <input type="text" v-on:input="setText" v-bind:value="text" />
     <button v-on:click="updateLink">make link</button>
     <Link v-bind:href="href" />
     <Computed />
@@ -43,12 +43,10 @@ export default {
     }
   },
   computed: {
-      ...mapState('text')
+      ...mapState(['text'])
   },
   methods: {
-    changeText: function(e) {
-      this.text = e.target.value;
-    },
+    ...mapActions(['setText']),
     updateLink: function() {
       this.href = this.text;
       this.text = null;
